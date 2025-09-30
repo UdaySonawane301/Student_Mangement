@@ -20,12 +20,13 @@ class Student(db.Model):
 with app.app_context():
     db.create_all()
 
-# Routes
+# Home page: show all students
 @app.route('/')
 def home():
     students = Student.query.all()
     return render_template('home.html', students=students)
 
+# Add student
 @app.route('/add', methods=['GET', 'POST'])
 def add_student():
     if request.method == 'POST':
@@ -37,24 +38,6 @@ def add_student():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('add_student.html')
-
-@app.route('/edit/<int:id>', methods=['GET', 'POST'])
-def edit_student(id):
-    student = Student.query.get_or_404(id)
-    if request.method == 'POST':
-        student.name = request.form['name']
-        student.email = request.form['email']
-        student.age = request.form['age']
-        db.session.commit()
-        return redirect(url_for('home'))
-    return render_template('edit_student.html', student=student)
-
-@app.route('/delete/<int:id>')
-def delete_student(id):
-    student = Student.query.get_or_404(id)
-    db.session.delete(student)
-    db.session.commit()
-    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True)
