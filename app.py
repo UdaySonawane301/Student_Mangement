@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Use environment variable for DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('postgresql://hr_erp_db_8xas_user:21KI8UbPkKhjHzbRniqlegAlF37pU6JH@dpg-d3dug9umcj7s73cu4s10-a/hr_erp_db_8xas')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
