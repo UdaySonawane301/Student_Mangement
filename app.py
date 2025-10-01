@@ -14,7 +14,7 @@ def get_connection():
         user="crud_dashboard_db_user",
         password="myTECBRRyf6VUadvVxAmYvQTy7oqyuvM",
         port="5432"
-    )
+     )
 
 @app.route('/')
 def welcome():
@@ -140,4 +140,5 @@ def search_list():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
