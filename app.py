@@ -9,10 +9,10 @@ app.secret_key = 'india'
 # ---------------------------
 def get_connection():
     return psycopg2.connect(
-        host="your-render-hostname",   # e.g. dpg-xxxxxxx.render.com
-        database="hr_erp_db",          # your db name
-        user="your-username",
-        password="your-password",
+        host="dpg-d3elv43uibrs73cc7830-a.singapore-postgres.render.com",   
+        database="crud_dashboard_db",          # your db name
+        user="crud_dashboard_db_user",
+        password="myTECBRRyf6VUadvVxAmYvQTy7oqyuvM",
         port="5432"
     )
 
@@ -140,3 +140,4 @@ def search_list():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
